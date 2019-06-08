@@ -1,0 +1,55 @@
+<div class="body">
+
+  <div class="container">
+   <div>
+　　<span class="flash"><%= h(flash[:notice]) %></span>
+    </div>
+    <div>
+    <% if book.errors.any? %>
+           <h3 style="color:red;"><%= book.errors.count %> errors prohibited this obj from being saved:</h3>
+           <% book.errors.full_messages.each do |message| %><br>
+                 <span style="color:red;"><%= message %><span>
+            <% end %>
+        <% end %>
+    </div>
+    <div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3">
+        <h2>User info</h2>
+        <%= attachment_image_tag user, :profile_image,class: "user_image",　format: 'jpeg',fallback: "no_image.jpg", size: "100x100" %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>name</th>
+              <th><%= user.name %></th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+              <th><%= user.introduction_id %>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+        
+          
+            <%= link_to "",edit_user_path(user),class: "col-lg-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" %>
+          
+        
+        <h2>New book</h2>
+
+        <%= form_for(book) do |f| %>
+        
+        <div>
+          <%= f.label :Title %><br>
+          <%= f.text_field :book_title,class: "book_title" %>
+        </div>
+        <div>
+          <%= f.label :Caption %><br>
+          <%= f.text_area :caption,class: "book_body" %>
+        </div>
+        <div class="submit">
+          <%= f.submit 'Create Book',class: "btn btn-primary col-lg-12"  %>
+        </div>
+        <% end %>
+        </div>

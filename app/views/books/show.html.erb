@@ -1,0 +1,35 @@
+<%= render partial: 'books/list',locals: {book: @newbook,user: current_user}  %>
+
+        <div class="col-lg-9"> 
+        	<h2>Book detail</h2>
+            <table class="table">
+            	<tbody>
+               <tr>
+                <td>
+                  <%= attachment_image_tag @user, :profile_image,class: "user_image",　format: 'jpeg',fallback: "no_image.jpg", size: "100x100" %><br>
+                <%= link_to @book.user.name, user_path(current_user), class: "user_#{@user.id}" %>
+              </th>
+                </td>
+                 <td>
+                   <%= @book.book_title %>
+                 </td>
+                 <td>
+                   <%= @book.caption %>
+                 </td>
+                 <td>
+                  <% if @book.user == current_user %>
+                   <%= link_to "Edit", edit_book_path(@book.id), class: "btn-sm btn-success edit_book_#{@book.id}" %>
+                 </td>
+                 <td>
+                   <%= link_to "Destroy", book_path(@book),class: "btn-sm btn-danger destroy_book_6458 destroy_book_#{@book.id}", data: {:confirm => '本当に消しますか？'}, method: :delete %>
+                   <% end %>
+                 </td>
+               </tr> 
+              </tbody>
+            </table>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
