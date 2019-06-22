@@ -21,7 +21,7 @@
                    <%= link_to "Edit", edit_book_path(@book.id), class: "btn-sm btn-success edit_book_#{@book.id}" %>
                  </td>
                  <td>
-                   <%= link_to "Destroy", book_path(@book),class: "btn-sm btn-danger destroy_book_6458 destroy_book_#{@book.id}", data: {:confirm => '本当に消しますか？'}, method: :delete %>
+                   <%= link_to "Destroy", book_path(@book),class: "btn-sm btn-danger destroy_book_#{@book.id}", data: {:confirm => '本当に消しますか？'}, method: :delete %>
                    <% end %>
                  </td>
                </tr> 
